@@ -1,0 +1,28 @@
+#!/bin/bash
+
+echo "---------------------------------------------------"
+echo "Now Executing MapReduce Job with Pairs Approach...."
+echo "---------------------------------------------------"
+cp /media/sf_shared/pairs.jar /usr/lib/hue/
+chmod 777 /usr/lib/hue/pairs.jar
+hadoop jar pairs.jar /user/hue/inputData /user/hue/outputPairs
+echo "---------------------------------------------------"
+echo "Completed Paris Execution!!!"
+echo "---------------------------------------------------"
+echo "Now  Executing MapReduce Job with Stripes Approach....."
+echo "----------------------------------------------------"
+cp /media/sf_shared/stripes.jar /usr/lib/hue/
+chmod 777 /usr/lib/hue/stripes.jar
+hadoop jar stripes.jar /user/hue/inputData /user/hue/outptputStripes
+echo "----------------------------------------------------"
+echo "Completed Stripes Execution!!!"
+echo "---------------------------------------------------"
+echo "Now executing MapReduce Job with Hybrid Approach....."
+echo "---------------------------------------------------"
+cp /media/sf_shared/hybrid.jar /usr/lib/hue/
+chmod 777 /usr/lib/hue/hybrid.jar
+hadoop jar hybrid.jar /user/hue/inputData /user/hue/outputHybrid
+echo "---------------------------------------------------"
+echo "Completed Hybrid Exection!!!"
+echo "---------------------------------------------------"
+
