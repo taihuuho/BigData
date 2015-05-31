@@ -31,7 +31,9 @@ The version of the Hadoop inside the Horton can be checked by running this comma
 `commons-collection-3.2.1.jar`
 
 `￼commons-cli-1.2.jar`
-￼
+
+![neccessary_jars](https://github.com/taihuuho/BigData/blob/master/images/lib_jars.png)￼
+
 ##Using Maven Project and POM
 
 You should be connected to the Internet for the maven to download dependencies.
@@ -44,19 +46,31 @@ This is a second way to get all the necessary jar files imported automatically. 
 add dependencies for the hadoop depending on the version you want.
 4. Save it and it will fetch all the necessary jar.
 
+![maven_dependencies](https://github.com/taihuuho/BigData/blob/master/images/maven_dependencies.png)
+
 ##Installation Steps for VirtualBox and the Appliance
 
 1. Install the Virtual Box you downloaded from Oracle.
+
+    ![virtualbox_step1](https://github.com/taihuuho/BigData/blob/master/images/install_VM_on_VirtualBox.png)
+
 2. From the File menu of the Virtual Box select “import Appliance” and provide the path for the Appliance(Sandbox).
+
+    ![virtualbox_step2](https://github.com/taihuuho/BigData/blob/master/images/install_VM_on_VirtualBox_step2.png)
+
 3. Once it is installed before powering it on,or before installing and start importing, we can change the parameters for memory, storage, shared folder, cd....etc
 ￼
+    ![virtualbox_step3](https://github.com/taihuuho/BigData/blob/master/images/install_VM_on_VirtualBox_step3.png)
 
 ##Eclipse Set up
 Creating a Map Reduce project on Eclipse
 
 1. Create a new project on Eclipse and name it “MyFirstMapReduce”.
 2. Next right click on the project you just created and select properties. On the „Libraries‟ tab
-select „Add External Jars‟. Then add the 10 jar files you have already downloaded. The jar files may be less or more depending on the needs of your program).
+select „Add External Jars‟. Then add the 10 jar files you have already downloaded. The jar files may be less or more depending on the needs of your program). 
+
+    ![eclipse_buildpath](https://github.com/taihuuho/BigData/blob/master/images/eclipse_buildpath.png)
+
 3. Then create a Mapper Class let‟s say “CustomerHistoryMapper” 
 4. Now create a Reducer Class “CustomerHistoryReducer”
 5. This is a driver class, “CustomerHistoryApplication”
@@ -67,6 +81,7 @@ select „Add External Jars‟. Then add the 10 jar files you have already downl
 As I have java version “1.7” I will set up my compiler compliance level to 1.7. This can be done by right-clicking on the project in eclipse > properties
 On the left side select “java compiler”, then choose 1.7
 ￼
+    ![config_jdk7](https://github.com/taihuuho/BigData/blob/master/images/eclipse_jdk_7.png)
 ￼
 #Shared Folder Configuration
 In order to access files and jars available on our system from inside the virtual machine, we need to setup the shared folder in the Virtual Box.
@@ -75,6 +90,8 @@ Put all the necessary jar files you might need from the inside of the virtual ma
 
 Next, while the virtual machine(“MyFirstHadoop”) is powered off, go to settings > shared folder
 ￼
+    ![shared_folder](https://github.com/taihuuho/BigData/blob/master/images/share_folder_VM.png)
+
 Using the folder icon on the right edge add any folder (let’s say a folder named “sharedFolder” is available on your desktop). Select “auto mount ” from the check boxes.
 
 # Creating a Runnable Jar File
@@ -82,8 +99,12 @@ Using the folder icon on the right edge add any folder (let’s say a folder nam
 Now the project is ready to be archived as jar. The steps for this are: 
 
 1. Right click on the project then “Export”
+
+    ![jar_export_step1](https://github.com/taihuuho/BigData/blob/master/images/runnable_jar_file.png)
 ￼
 2. Select“Java”,expand it now select“Runnable Jar”
+
+    ![jar_export_step2](https://github.com/taihuuho/BigData/blob/master/images/runnable_jar_file_step2.png)
 ￼
 3. In Launch Configurations select the project name“MyFirstMapReduce”
 
@@ -92,6 +113,8 @@ earlier and give it some name let‟s say “counter”.
 
 5. Select“Extract required libraries into generated JAR”.Then Finish.(Ignoreany
 warnings that may show up during the jar creation).
+
+    ![jar_export_step3](https://github.com/taihuuho/BigData/blob/master/images/runnable_jar_file_step3.png)
 
 Now the jar named “counter.jar” is created inside the “sharedFolder” folder. Check to confirm!
 
@@ -133,13 +156,23 @@ Now the jar named “counter.jar” is created inside the “sharedFolder” fol
 #Setting up the Hadoop and Input files from the Web
 1. Use this link to access Horton from the browser ( http://127.0.0.1:8000/ )
 
+    ![hadoop_web_step1](https://github.com/taihuuho/BigData/blob/master/images/hadoop_web_step1.png)
+
 2. Login as hue using password Hadoop
 ￼
+    ![hadoop_web_step2](https://github.com/taihuuho/BigData/blob/master/images/hadoop_web_step2.png)
+
 3. Go to File Browser and select the New button and then Directory.Create a directory with a name InputFiles.
+
+    ![hadoop_web_step3](https://github.com/taihuuho/BigData/blob/master/images/hadoop_web_step3.png)
 
 4. Open this newly created directory and create new files like test1.txt and test2.txt
 
+    ![hadoop_web_step4](https://github.com/taihuuho/BigData/blob/master/images/hadoop_web_step4.png)
+
 5. Add some text to these files using the Edit File menu on the right hand side and save the changes.
+
+    ![hadoop_web_step5](https://github.com/taihuuho/BigData/blob/master/images/hadoop_web_step5.png)
 
 ￼We don‟t need to create an output file and directory; they will be automatically created when we run our program later from the Horton sandbox.
 
@@ -170,13 +203,19 @@ Once the Jobs are completed the output can be checked from the output folder we 
 
 Go to File Browser and open this path /user/hue/OutputFiles
 
+    ![monitor_jobs](https://github.com/taihuuho/BigData/blob/master/images/hadoop_web_step6.png)
+
 Checking Output of the MapReduce Jobs
 ￼￼
+    ![verify_outputs](https://github.com/taihuuho/BigData/blob/master/images/hadoop_web_step7.png)
+
 We can also access the Horton Sandbox remotely using SSH. 
 To do this download Putty or Secure Shell Client.
 
 Use Host Name – localhost User Name – root
 Port – 2222 password – hadoop
+
+    ![ssh_remote](https://github.com/taihuuho/BigData/blob/master/images/ssh_remote.png)
 ￼
 #Writing a Batch file or Script
 
